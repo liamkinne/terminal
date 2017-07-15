@@ -61,6 +61,7 @@ namespace PantheonTerminal {
                 <menuitem name="Search" action="Search"/>
                 <menuitem name="About" action="About"/>
 
+                <menuitem name="CycleTabs" action="CycleTabs"/>
                 <menuitem name="NextTab" action="NextTab"/>
                 <menuitem name="PreviousTab" action="PreviousTab"/>
 
@@ -809,6 +810,10 @@ namespace PantheonTerminal {
             current_terminal.set_default_font_size ();
         }
 
+        void action_cycle_tabs () {
+            notebook.next_page ();
+        }
+
         void action_next_tab () {
             notebook.next_page ();
         }
@@ -968,6 +973,10 @@ namespace PantheonTerminal {
 
             { "About", "gtk-about", N_("About"),
               null, N_("Show about window"), action_about },
+
+            { "CycleTabs", null, N_("Cycle Tabs"),
+              "<Control><Shift>h", N_("Cycle Through Tabs"),
+              action_cycle_tabs },
 
             { "NextTab", null, N_("Next Tab"),
               "<Control><Shift>Right", N_("Go to next tab"),
